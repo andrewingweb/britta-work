@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Berechnungen</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div id="buttons">
-        <h1>KuG Berechnen!</h1>
-        <label>wchtl. AZ (WAZ)</label>
+      <h1>KuG Berechnen!</h1>
+      <label>wchtl. AZ (WAZ)</label>
       <input type="number" id="kaz" /><br /><br />
-      <input type="radio" id="az1a" name="fahrplan"  />  
-      <label for="aza">durchschn. AZ (WAZx13:3)</label><span id="result1a"></span><br /><br>
+      <input type="radio" id="az1a" name="fahrplan" />  
+      <label for="aza">durchschn. AZ (WAZx13:3)</label
+      ><span id="result1a"></span><br /><br />
        
-      <input type="radio" id="az2a" name="fahrplan"  />
-        <label for="aza">durchschn. AZ (WAZx4,35)</label><span id="result2a"></span><br><br>
-      <span id="result4"></span><br><br>
+      <input type="radio" id="az2a" name="fahrplan" />
+        <label for="aza">durchschn. AZ (WAZx4,35)</label
+      ><span id="result2a"></span><br /><br />
+      <span id="result4"></span><br /><br />
       <label>Ausfallstd.</label>
       <input type="number" id="aust" /><br /><br />
-        
-      <div id="result1"></div><br />
-        <label>Grundgehalt</label>
-      <input type="number" id="k1" /><br /><br />
-        <label>Netto Gehalt</label>
-      <input type="number" id="k2" /><br /><br />
-        <label>Stunden Soll</label>
-      <input type="number" id="k3" /><br /><br />
-        <label>Stunden Ist</label>
-      <input type="number" id="k4" /><br /><br />
-        <input
+
+      <div id="result1"></div>
+      <br />
+      <label>Grundgehalt</label>
+      <input type="number" id="k1" value="0" /><br />
+      <label>Mehrarbeit</label>
+      <input type="number" id="k2" value="0" /><br />
+      <label>PKW</label>
+      <input type="number" id="k3" value="0" /><br />
+      <label>Urlaubsaufschlag</label>
+      <input type="number" id="k4" value="0" /><br />
+      <label>Zulage 1</label>
+      <input type="number" id="k5" value="0" /><br />
+      <label>Zulage 2</label>
+      <input type="number" id="k6" value="0" /><br />
+      <label>Zulage 3</label>
+      <input type="number" id="k7" value="0" /><br />
+      <label>Zulage 4</label>
+      <input type="number" id="k8" value="0" /><br />
+      <label>Zulage 5</label>
+      <input type="number" id="k9" value="0" /><br />
+      <label>Zulage 6</label>
+      <input type="number" id="k10" value="0" /><br /><br>
+      <input
         class="button"
         type="button"
         onclick="Calculate();"
@@ -40,8 +55,8 @@
 
       <div id="result"></div>
       <br /><br />
-        <a href="berechnungen.html" class="btn purple">Zurück</a>
-      </div>
+      <a href="berechnungen.html" class="btn purple">Zurück</a>
+    </div>
     <script>
       function Calculate() {
         var kaz = parseInt(document.getElementById("kaz").value);
@@ -49,52 +64,48 @@
         var k2 = parseInt(document.getElementById("k2").value);
         var k3 = parseInt(document.getElementById("k3").value);
         var k4 = parseInt(document.getElementById("k4").value);
-        
-        var kug = (k1 + k2 + k3 + k4);
+        var k5 = parseInt(document.getElementById("k5").value);
+        var k6 = parseInt(document.getElementById("k6").value);
+        var k7 = parseInt(document.getElementById("k7").value);
+        var k8 = parseInt(document.getElementById("k8").value);
+        var k9 = parseInt(document.getElementById("k9").value);
+        var k10 = parseInt(document.getElementById("k10").value);
 
-        
+        var kug = k1 + k2 + k3 + k4 + k5 + k6 + k7 + k8 + k9 + k10;
+
         var checkbox1 = document.getElementById("az1a");
         var checkbox2 = document.getElementById("az2a");
-        
 
         var az1a;
         var az2a;
-        
-
 
         if (checkbox1.checked == true) {
-          az1a = (kaz * 13 / 3);
+          az1a = (kaz * 13) / 3;
         }
         if (checkbox1.checked == false) {
           az1a = 0;
         }
         if (checkbox2.checked == true) {
-          az2a = (kaz * 4,35);
+          az2a = (kaz * 4, 35);
         }
         if (checkbox2.checked == false) {
           az2a = 0;
         }
-        
 
-        var taz = (az1a + az2a);
+        var taz = az1a + az2a;
 
-
-
-        document.getElementById("result").innerHTML = [
-          "KuG = " + kug + " €",
-        ];
+        document.getElementById("result").innerHTML = ["KuG = " + kug + " €"];
         document.getElementById("result1a").innerHTML = [
           " " + az1a.toFixed(2) + " Std.",
         ];
         document.getElementById("result2a").innerHTML = [
-        " " + az2a.toFixed(2) + " Std.",
+          " " + az2a.toFixed(2) + " Std.",
         ];
-        
+
         document.getElementById("result4").innerHTML = [
           "somit zu berücksichtigende AZ: " + taz.toFixed(2) + " Std.",
         ];
-
       }
     </script>
-</body>
+  </body>
 </html>
