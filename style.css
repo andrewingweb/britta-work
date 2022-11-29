@@ -4,12 +4,12 @@
 /* set global font to Open Sans */
 body {
   font-family: 'Open Sans', 'sans-serif';
-  background-image: url(http://benague.ca/files/pw_pattern.png);
+  
 }
 
 /* header */
 h1 {
-  color: #55acee;
+  color: #cb7d50;
   text-align: center;
 }
 
