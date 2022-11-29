@@ -10,10 +10,40 @@
 <body>
     <div id="buttons">
         <h1>KuG Berechnen!</h1>
-        <h4>Bla bla bla</h4>
-        
+        <br>
+        <label>Brutto Gehalt</label>
+      <input type="number" id="k1" /><br /><br />
+        <label>Netto Gehalt</label>
+      <input type="number" id="k2" /><br /><br />
+        <label>Stunden Soll</label>
+      <input type="number" id="k3" /><br /><br />
+        <label>Stunden Ist</label>
+      <input type="number" id="k4" /><br /><br />
+        <input
+        class="button"
+        type="button"
+        onclick="Calculate();"
+        value="Rechnen"
+      /><br /><br /><br />
+
+      <div id="result"></div>
+      <br /><br />
         <a href="berechnungen.html" class="btn purple">Zurück</a>
       </div>
-    
+    <script>
+      function Calculate() {
+        var k1 = parseInt(document.getElementById("k1").value);
+        var k2 = parseInt(document.getElementById("k2").value);
+        var k3 = parseInt(document.getElementById("k3").value);
+        var k4 = parseInt(document.getElementById("k4").value);
+        
+        var kug = (k1 + k2 + k3 + k4);
+
+        document.getElementById("result").innerHTML = [
+          "KuG = " + kug + " €",
+        ];
+
+      }
+    </script>
 </body>
 </html>
