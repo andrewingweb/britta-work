@@ -13,15 +13,15 @@
       <h1>KuG Differenz</h1>
 
       <label>errechnetes Kug</label>
-      <input type="number" id="k1" value="0" style="width: 70px" /> €<br />
+      <input type="number" id="k1" style="width: 70px" /> €<br />
       <label>errechnete SV</label>
-      <input type="number" id="k2" value="0" style="width: 70px" /> €<br />
+      <input type="number" id="k2" style="width: 70px" /> €<br />
       <div id="result"></div>
       <br />
       <label>abgerechnetes Kug</label>
-      <input type="number" id="k3" value="0" style="width: 70px" /> €<br />
+      <input type="number" id="k3" style="width: 70px" /> €<br />
       <label>abgerechnete SV</label>
-      <input type="number" id="k4" value="0" style="width: 70px" />
+      <input type="number" id="k4" style="width: 70px" />
       €<br />
       <div id="result1"></div>
 
@@ -41,11 +41,11 @@
     </div>
     <script>
       function Calculate() {
-        var k1 = parseInt(document.getElementById("k1").value);
-        var k2 = parseInt(document.getElementById("k2").value);
+        var k1 = Number(document.getElementById("k1").value);
+        var k2 = Number(document.getElementById("k2").value);
 
-        var k3 = parseInt(document.getElementById("k3").value);
-        var k4 = parseInt(document.getElementById("k4").value);
+        var k3 = Number(document.getElementById("k3").value);
+        var k4 = Number(document.getElementById("k4").value);
 
         var suma = k1 + k2;
 
