@@ -12,35 +12,36 @@
     <div id="buttons">
       <h1>KuG Berechnen (Lohn)</h1>
       <label>Gesamt-AZ des Monats</label>
-      <input type="number" id="gaz" /> Std.<br /><br />
+      <input type="number" id="gaz" value="0" style="width: 50px" /> Std.<br /><br />
       <label>tats. geleistete AZ</label>
-      <input type="number" id="tgaz" /> Std.<br />
+      <input type="number" id="tgaz" value="0" style="width: 50px" /> Std.<br />
       <label>darin enth. Mehrarbeit</label>
-      <input type="number" id="k1" value="0" /> Std.<br />
+      <input type="number" id="k1" value="0" style="width: 50px" /> Std.<br />
       <label>Urlaub</label>
-      <input type="number" id="k2" value="0" /> Std.<br />
+      <input type="number" id="k2" value="0" style="width: 50px" /> Std.<br />
       <label>Feiertag</label>
-      <input type="number" id="k3" value="0" /> Std.<br />
+      <input type="number" id="k3" value="0" style="width: 50px" /> Std.<br />
       <label>Ausfallzeit</label>
-      <input type="number" id="k4" value="0" /> Std.<br />
+      <input type="number" id="k4" value="0" style="width: 50px" /> Std.<br />
       <label>Fehlstd. unbez.</label>
-      <input type="number" id="k5" value="0" /> Std.<br /><br>
+      <input type="number" id="k5" value="0" style="width: 50px" /> Std.<br /><br>
       <label>Stundenlohn</label>
-      <input type="number" id="k6" value="0" />€<br /><br>
+      <input type="number" id="k6" value="0" style="width: 50px" />€<br /><br>
+      <div id="result"></div><br>
       <label>Zulage 3</label>
-      <input type="number" id="k7" value="0" /><br />
+      <input type="number" id="k7" value="0" style="width: 50px" /><br />
       <label>Zulage 4</label>
-      <input type="number" id="k8" value="0" /><br />
+      <input type="number" id="k8" value="0" style="width: 50px" /><br />
       <label>Zulage 5</label>
-      <input type="number" id="k9" value="0" /><br />
+      <input type="number" id="k9" value="0" style="width: 50px" /><br />
       <label>Zulage 6</label>
-      <input type="number" id="k10" value="0" /><br />
+      <input type="number" id="k10" value="0" style="width: 50px" /><br />
       <label>VL</label>
-      <input type="number" id="k11" value="0" /><br />
+      <input type="number" id="k11" value="0" style="width: 50px" /><br />
       <label>Kontoführg.</label>
-      <input type="number" id="k12" value="0" /><br />
+      <input type="number" id="k12" value="0" style="width: 50px" /><br />
       <label>Direktvers.</label>
-      <input type="number" id="k13" value="0" /><br /><br />
+      <input type="number" id="k13" value="0" style="width: 50px" /><br /><br />
       <input
         class="button"
         type="button"
@@ -57,9 +58,9 @@
     </div>
     <script>
       function Calculate() {
-        var gaz = parseInt(document.getElementById("gaz").value);
-        var tgaz = parseInt(document.getElementById("tgaz").value);
-        var k1 = parseInt(document.getElementById("k1").value);
+        var gaz = (document.getElementById("gaz").value);
+        var tgaz = (document.getElementById("tgaz").value);
+        var k1 = (document.getElementById("k1").value);
         var k2 = parseInt(document.getElementById("k2").value);
         var k3 = parseInt(document.getElementById("k3").value);
         var k4 = parseInt(document.getElementById("k4").value);
@@ -73,31 +74,10 @@
         var k12 = parseInt(document.getElementById("k12").value);
         var k13 = parseInt(document.getElementById("k13").value);
 
-        var kug = k1 + k3 + k4 + k5 + k6 + k7 + k8 + k9 + k10 + k11 + k12;
-
-        var checkbox1 = document.getElementById("az1a");
-        var checkbox2 = document.getElementById("az2a");
-
-        var az1a;
-        var az2a;
-
-        if (checkbox1.checked == true) {
-          az1a = (kaz * 13) / 3;
-        }
-        if (checkbox1.checked == false) {
-          az1a = 0;
-        }
-        if (checkbox2.checked == true) {
-          az2a = (kaz * 4, 35);
-        }
-        if (checkbox2.checked == false) {
-          az2a = 0;
-        }
-
-        var taz = az1a + az2a;
+        var aeg = (tgaz - k1)*k6;
 
         document.getElementById("result").innerHTML = [
-          "Sollentgeld = " + kug + " €",
+          "Arbeitsentgelt = " + aeg.toFixed(2) + " €",
         ];
         document.getElementById("result1a").innerHTML = [
           " " + az1a.toFixed(2) + " Std.",
