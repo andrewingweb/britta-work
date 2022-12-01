@@ -42,25 +42,27 @@
       <label>Zulage 1 fest</label>
       <input type="number" id="k9" value="0" style="width: 50px" /><br />
       <label>Zulage 2 fest</label>
-      <input type="number" id="k9" value="0" style="width: 50px" /><br />
-      <label>Zulage 3 fest</label>
-      <input type="number" id="k9" value="0" style="width: 50px" /><br />
-      <label>Zulage 4 fest</label>
-      <input type="number" id="k9" value="0" style="width: 50px" /><br />
-      <label>Zulage 5 variabel</label>
-      <input type="number" id="k9" value="0" style="width: 50px" /><br />
-      <label>Zulage 6 variabel</label>
-      <input type="number" id="k9" value="0" style="width: 50px" /><br />
-      <label>Zulage 7 variabel</label>
-      <input type="number" id="k9" value="0" style="width: 50px" /><br />
-      <label>Zulage 8 variabel</label>
       <input type="number" id="k10" value="0" style="width: 50px" /><br />
-      <label>VL</label>
+      <label>Zulage 3 fest</label>
       <input type="number" id="k11" value="0" style="width: 50px" /><br />
-      <label>Kontoführg.</label>
+      <label>Zulage 4 fest</label>
       <input type="number" id="k12" value="0" style="width: 50px" /><br />
+      <label>Zulage 5 variabel</label>
+      <input type="number" id="k13" value="0" style="width: 50px" /><br />
+      <label>Zulage 6 variabel</label>
+      <input type="number" id="k14" value="0" style="width: 50px" /><br />
+      <label>Zulage 7 variabel</label>
+      <input type="number" id="k15" value="0" style="width: 50px" /><br />
+      <label>Zulage 8 variabel</label>
+      <input type="number" id="k16" value="0" style="width: 50px" /><br />
+      <label>VL</label>
+      <input type="number" id="k17" value="0" style="width: 50px" /><br />
+      <label>Kontoführg.</label>
+      <input type="number" id="k18" value="0" style="width: 50px" /><br />
       <label>Direktvers.</label>
-      <input type="number" id="k13" value="0" style="width: 50px" /><br /><br />
+      <input type="number" id="k19" value="0" style="width: 50px" /><br />
+      <div id="result5"></div>
+      <br />
       <input
         class="button"
         type="button"
@@ -69,11 +71,7 @@
       /><br /><br />
 
       <h3>Kürzungen wegen KuG</h3>
-      <div id="result5"></div>
-      <br />
-      <div id="result6"></div>
-      <br />
-      <div id="result7"></div>
+      
 
       <a href="berechnungen.html" class="btn purple">Zurück</a>
     </div>
@@ -87,13 +85,19 @@
         var k4 = document.getElementById("k4").value;
         var k5 = document.getElementById("k5").value;
         var k6 = document.getElementById("k6").value;
-        var k7 = parseInt(document.getElementById("k7").value);
-        var k8 = parseInt(document.getElementById("k8").value);
-        var k9 = parseInt(document.getElementById("k9").value);
-        var k10 = parseInt(document.getElementById("k10").value);
-        var k11 = parseInt(document.getElementById("k11").value);
-        var k12 = parseInt(document.getElementById("k12").value);
-        var k13 = parseInt(document.getElementById("k13").value);
+        var k7 = document.getElementById("k7").value;
+        var k8 = document.getElementById("k8").value;
+        var k9 = document.getElementById("k9").value;
+        var k10 = document.getElementById("k10").value;
+        var k11 = document.getElementById("k11").value;
+        var k12 = document.getElementById("k12").value;
+        var k13 = document.getElementById("k13").value;
+        var k14 = document.getElementById("k14").value;
+        var k15 = document.getElementById("k15").value;
+        var k16 = document.getElementById("k16").value;
+        var k17 = document.getElementById("k17").value;
+        var k18 = document.getElementById("k18").value;
+        var k19 = document.getElementById("k19").value;
 
         var aeg = (tgaz - k1) * k6;
 
@@ -124,11 +128,28 @@
         document.getElementById("result4").innerHTML = [
           "Feiertag = " + ft.toFixed(2) + " €",
         ];
-        document.getElementById("result6").innerHTML = [
-          "Mehrarbeit " + k2.toFixed(2) + " €",
-        ];
-        var ieg = kug - gga + k2;
-        document.getElementById("result7").innerHTML = [
+
+        var ieg =
+          aeg +
+          hfs +
+          ma +
+          k7 +
+          uf +
+          k8 +
+          ft +
+          k9 +
+          k10 +
+          k11 +
+          k12 +
+          k13 +
+          k14 +
+          k15 +
+          k16 +
+          k17 +
+          k18 -
+          k19;
+
+        document.getElementById("result5").innerHTML = [
           "Istentgeld " + ieg.toFixed(2) + " €",
         ];
       }
