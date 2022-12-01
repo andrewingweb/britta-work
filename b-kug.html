@@ -34,36 +34,48 @@
       <label>PKW</label>
       <input type="number" id="k3" value="0" /><br />
       <label>Urlaubsaufschlag</label>
-      <input type="number" id="k4" value="0" /><br />
+      <input type="number" id="k4" value="0" /> ja<input type="radio" id="k4a" name="p4" /> nein<input type="radio" id="k44a" name="p4" /><br />
       <label>Zulage 1</label>
-      <input type="number" id="k5" value="0" /><br />
+      <input type="number" id="k5" value="0" /> ja<input type="radio" id="k5a" name="p5" /> nein<input type="radio" id="k45a" name="p5" /><br />
       <label>Zulage 2</label>
-      <input type="number" id="k6" value="0" /><br />
+      <input type="number" id="k6" value="0" /> ja<input type="radio" id="k6a" name="p6" /> nein<input type="radio" id="k46a" name="p6" /><br />
       <label>Zulage 3</label>
-      <input type="number" id="k7" value="0" /><br />
+      <input type="number" id="k7" value="0" /> ja<input type="radio" id="k7a" name="p7" /> nein<input type="radio" id="k47a" name="p7" /><br />
       <label>Zulage 4</label>
-      <input type="number" id="k8" value="0" /><br />
+      <input type="number" id="k8" value="0" /> ja<input type="radio" id="k8a" name="p8" /> nein<input type="radio" id="k48a" name="p8" /><br />
       <label>Zulage 5</label>
-      <input type="number" id="k9" value="0" /><br />
+      <input type="number" id="k9" value="0" /> ja<input type="radio" id="k9a" name="p9" /> nein<input type="radio" id="k49a" name="p9" /><br />
       <label>Zulage 6</label>
-      <input type="number" id="k10" value="0" /><br />
+      <input type="number" id="k10" value="0" /> ja<input type="radio" id="k10a" name="p10" /> nein<input type="radio" id="k50a" name="p10" /><br />
       <label>VL</label>
-      <input type="number" id="k11" value="0" /><br />
+      <input type="number" id="k11" value="0" /> ja<input type="radio" id="k11a" name="p11" /> nein<input type="radio" id="k51a" name="p11" /><br />
       <label>Kontoführg.</label>
-      <input type="number" id="k12" value="0" /><br />
+      <input type="number" id="k12" value="0" /> ja<input type="radio" id="k12a" name="p12" /> nein<input type="radio" id="k52a" name="p12" /><br />
       <label>Direktvers.</label>
-      <input type="number" id="k13" value="0" /><br /><br />
+      <input type="number" id="k13" value="0" /><br /><br><div id="result"></div><br>
       <input
         class="button"
         type="button"
         onclick="Calculate();"
         value="Rechnen"
       /><br /><br />
-      <div id="result"></div>
+      
       <h3>Kürzungen wegen KuG</h3>
       <div id="result5"></div><br>
+      <div id="result24"></div><br>
+      <div id="result25"></div><br>
+      <div id="result26"></div><br>
+      <div id="result27"></div><br>
+      <div id="result28"></div><br>
+      <div id="result29"></div><br>
+      <div id="result30"></div><br>
+      <div id="result31"></div><br>
+      <div id="result32"></div><br>
+      <hr><br>
+      <div id="result8"></div><br>
       <div id="result6"></div><br>
-      <div id="result7"></div>
+      <div id="result7"></div><br>
+      
 
       <a href="berechnungen.html" class="btn purple">Zurück</a>
     </div>
@@ -114,7 +126,7 @@
           taz = tats;
         }
         document.getElementById("result").innerHTML = [
-          "Sollentgeld = " + kug + " €",
+          "Sollentgeld = " + kug.toFixed(2) + " €",
         ];
         document.getElementById("result1a").innerHTML = [
           " " + az1a.toFixed(2) + " Std.",
@@ -126,18 +138,100 @@
         document.getElementById("result4").innerHTML = [
           "somit zu berücksichtigende AZ: " + taz.toFixed(2) + " Std.",
         ];
-        var gga = (kug / taz) * aust;
+        var gga = (k1 / taz) * aust;
 
         document.getElementById("result5").innerHTML = [
-          "Kürzungsbetrag " + gga.toFixed(2) + " €",
+          "Grundgehalt = " + gga.toFixed(2) + " €",
         ];
         document.getElementById("result6").innerHTML = [
-          "Mehrarbeit " + k2.toFixed(2) + " €",
+          "Mehrarbeit = " + k2.toFixed(2) + " €",
         ];
-        var ieg = kug - gga + k2;
+        
+
+        var k4b = (k4 / taz) * aust;
+        var k5b = (k5 / taz) * aust;
+        var k6b = (k6 / taz) * aust;
+        var k7b = (k7 / taz) * aust;
+        var k8b = (k8 / taz) * aust;
+        var k9b = (k9 / taz) * aust;
+        var k10b = (k10 / taz) * aust;
+        var k11b = (k11 / taz) * aust;
+        var k12b = (k12 / taz) * aust;
+
+        var checkbox4 = document.getElementById("k4a");
+        var checkbox5 = document.getElementById("k5a");
+        var checkbox6 = document.getElementById("k6a");
+        var checkbox7 = document.getElementById("k7a");
+        var checkbox8 = document.getElementById("k8a");
+        var checkbox9 = document.getElementById("k9a");
+        var checkbox10 = document.getElementById("k10a");
+        var checkbox11 = document.getElementById("k11a");
+        var checkbox12 = document.getElementById("k12a");
+
+        if (checkbox4.checked == true) {
+          document.getElementById("result24").innerHTML = [
+          "Urlaubsaufschlag = " + k4b.toFixed(2) + " €",
+        ];
+      }
+
+        if (checkbox5.checked == true) {
+          document.getElementById("result25").innerHTML = [
+          "Zulage 1 = " + k5b.toFixed(2) + " €",
+        ];
+      }
+
+        if (checkbox6.checked == true) {
+          document.getElementById("result26").innerHTML = [
+          "Zulage 2 = " + k6b.toFixed(2) + " €",
+        ];
+      }
+
+        if (checkbox7.checked == true) {
+          document.getElementById("result27").innerHTML = [
+          "Zulage 3 = " + k7b.toFixed(2) + " €",
+        ];
+      }
+
+        if (checkbox8.checked == true) {
+          document.getElementById("result28").innerHTML = [
+          "Zulage 4 = " + k8b.toFixed(2) + " €",
+        ];
+      }
+
+        if (checkbox9.checked == true) {
+          document.getElementById("result29").innerHTML = [
+          "Zulage 5 = " + k9b.toFixed(2) + " €",
+        ];
+      }
+
+        if (checkbox10.checked == true) {
+          document.getElementById("result30").innerHTML = [
+          "Zulage 6 = " + k10b.toFixed(2) + " €",
+        ];
+      }
+
+        if (checkbox11.checked == true) {
+          document.getElementById("result31").innerHTML = [
+          "VL = " + k11b.toFixed(2) + " €",
+        ];
+      }
+
+        if (checkbox12.checked == true) {
+          document.getElementById("result32").innerHTML = [
+          "Kontoführung = " + k12b.toFixed(2) + " €",
+        ];
+      }
+
+      var kug1 = gga+k4b+k5b+k6b+k7b+k8b+k9b+k10b+k11b+k12b;
+
+      document.getElementById("result8").innerHTML = [
+          "Kürzungsbetrag = " + kug1.toFixed(2) + " €",
+        ];
+        var ieg = (kug - kug1) + k2;
         document.getElementById("result7").innerHTML = [
-          "Istentgeld " + ieg.toFixed(2) + " €",
+          "Istentgeld = " + ieg.toFixed(2) + " €",
         ];
+
       }
     </script>
   </body>
