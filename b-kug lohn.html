@@ -38,7 +38,7 @@
       <div id="result3"></div>
       <label>Urlaub variabel</label>
       <input type="number" id="k8" value="0" style="width: 50px" /><br />
-      
+
       <div id="result4"></div>
       <label>Zulage 1 fest</label>
       <input type="number" id="k9" value="0" style="width: 50px" /><br />
@@ -74,10 +74,23 @@
       <h3>Kürzungen wegen KuG</h3>
 
       <div id="result6"></div>
-      <div id="result7"></div><br>
+      <div id="result7"></div>
+      <br />
       <div id="result8"></div>
       <div id="result9"></div>
       <div id="result10"></div>
+      <div id="result11"></div>
+      <div id="result12"></div>
+      <div id="result13"></div>
+      <div id="result14"></div>
+      <div id="result15"></div>
+      <div id="result16"></div>
+      <div id="result17"></div>
+      <div id="result18"></div>
+      <div id="result19"></div>
+      <div id="result20"></div>
+      <div id="result21"></div><br>
+      <div id="result22"></div>
 
       <a href="berechnungen.html" class="btn purple">Zurück</a>
     </div>
@@ -183,13 +196,61 @@
           "Urlaub variabel = " + kuv.toFixed(2) + " €",
         ];
 
-        var kft = k9;
+        var kft = ft;
 
         document.getElementById("result10").innerHTML = [
-          "Feiertag = " + ft.toFixed(2) + " €",
+          "Feiertag = " + kft.toFixed(2) + " €",
         ];
 
-        
+        document.getElementById("result11").innerHTML = [
+          "Zulage 1 fest = " + k9.toFixed(2) + " €",
+        ];
+
+        document.getElementById("result12").innerHTML = [
+          "Zulage 2 fest = " + k10.toFixed(2) + " €",
+        ];
+
+        document.getElementById("result13").innerHTML = [
+          "Zulage 3 fest = " + k11.toFixed(2) + " €",
+        ];
+
+        document.getElementById("result14").innerHTML = [
+          "Zulage 4 fest = " + k12.toFixed(2) + " €",
+        ];
+
+        document.getElementById("result15").innerHTML = [
+          "Zulage 5 variabel = " + k13.toFixed(2) + " €",
+        ];
+
+        document.getElementById("result16").innerHTML = [
+          "Zulage 6 variabel = " + k14.toFixed(2) + " €",
+        ];
+
+        document.getElementById("result17").innerHTML = [
+          "Zulage 7 variabel = " + k15.toFixed(2) + " €",
+        ];
+
+        document.getElementById("result18").innerHTML = [
+          "Zulage 8 variabel = " + k16.toFixed(2) + " €",
+        ];
+
+        document.getElementById("result19").innerHTML = [
+          "VL = " + k17.toFixed(2) + " €",
+        ];
+
+        document.getElementById("result20").innerHTML = [
+          "Kontoführg. = " + k18.toFixed(2) + " €",
+        ];
+
+        document.getElementById("result21").innerHTML = [
+          "Direktvers. = " + k19.toFixed(2) + " €",
+        ];
+
+        var skeg = kaeg+khf+kul+kuv+kft+k9+k10+k11+k12+k13+k14+k15+k16+k17+k18;
+
+        document.getElementById("result22").innerHTML = [
+          "Sollentgelt = " + skeg.toFixed(2) + " €",
+        ];
       }
     </script>
   </body>
