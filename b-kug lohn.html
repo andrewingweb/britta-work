@@ -33,10 +33,12 @@
       <div id="result1"></div>
       <div id="result2"></div>
       <br />
-      <label>Zulage 3</label>
+      <label>Mehrarbeitszuschl. 25%</label>
       <input type="number" id="k7" value="0" style="width: 50px" /><br />
-      <label>Zulage 4</label>
+      <div id="result3"></div>
+      <label>Urlaub variabel</label>
       <input type="number" id="k8" value="0" style="width: 50px" /><br />
+      <div id="result4"></div>
       <label>Zulage 5</label>
       <input type="number" id="k9" value="0" style="width: 50px" /><br />
       <label>Zulage 6</label>
@@ -68,11 +70,11 @@
         var gaz = document.getElementById("gaz").value;
         var tgaz = document.getElementById("tgaz").value;
         var k1 = document.getElementById("k1").value;
-        var k2 = (document.getElementById("k2").value);
-        var k3 = (document.getElementById("k3").value);
-        var k4 = (document.getElementById("k4").value);
-        var k5 = (document.getElementById("k5").value);
-        var k6 = (document.getElementById("k6").value);
+        var k2 = document.getElementById("k2").value;
+        var k3 = document.getElementById("k3").value;
+        var k4 = document.getElementById("k4").value;
+        var k5 = document.getElementById("k5").value;
+        var k6 = document.getElementById("k6").value;
         var k7 = parseInt(document.getElementById("k7").value);
         var k8 = parseInt(document.getElementById("k8").value);
         var k9 = parseInt(document.getElementById("k9").value);
@@ -93,19 +95,22 @@
           "Hochrechn. Fehlstd. = " + hfs.toFixed(2) + " €",
         ];
 
-        var ma = k1*k6;
+        var ma = k1 * k6;
 
         document.getElementById("result2").innerHTML = [
           "Mehrarbeit = " + ma.toFixed(2) + " €",
         ];
 
-        document.getElementById("result4").innerHTML = [
-          "somit zu berücksichtigende AZ: " + taz.toFixed(2) + " Std.",
-        ];
-        var gga = (kug / taz) * aust;
+        var uf = k2 * k6;
 
-        document.getElementById("result5").innerHTML = [
-          "Kürzungsbetrag " + gga.toFixed(2) + " €",
+        document.getElementById("result3").innerHTML = [
+          "Urlaub Festbetrag = " + uf.toFixed(2) + " €",
+        ];
+
+        var ft = k3 * k6;
+
+        document.getElementById("result4").innerHTML = [
+          "Feiertag = " + ft.toFixed(2) + " €",
         ];
         document.getElementById("result6").innerHTML = [
           "Mehrarbeit " + k2.toFixed(2) + " €",
