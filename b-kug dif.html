@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Berechnungen Differenz</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="buttons">
+      <h1>KuG Differenz</h1>
+
+      <label>errechnetes Kug</label>
+      <input type="number" id="k1" value="0" style="width: 70px" /> €<br />
+      <label>errechnete SV</label>
+      <input type="number" id="k2" value="0" style="width: 70px" /> €<br />
+      <div id="result"></div>
+      <br />
+      <label>abgerechnetes Kug</label>
+      <input type="number" id="k3" value="0" style="width: 70px" /> €<br />
+      <label>abgerechnete SV</label>
+      <input type="number" id="k4" value="0" style="width: 70px" />
+      €<br />
+      <div id="result1"></div>
+
+      <br />
+      <input
+        class="button"
+        type="button"
+        onclick="Calculate();"
+        value="Rechnen"
+      /><br /><br />
+
+      <h3>Differenz</h3>
+      <br />
+      <div id="result2"></div>
+      <br />
+
+      <a href="berechnungen.html" class="btn purple">Zurück</a>
+    </div>
+    <script>
+      function Calculate() {
+        var k1 = parseInt(document.getElementById("k1").value);
+        var k2 = parseInt(document.getElementById("k2").value);
+
+        var k3 = parseInt(document.getElementById("k3").value);
+        var k4 = parseInt(document.getElementById("k4").value);
+
+        var suma = k1 + k2;
+
+        document.getElementById("result").innerHTML = [
+          "Gesamt = " + suma.toFixed(2) + " €",
+        ];
+
+        var sumb = k3 + k4;
+
+        document.getElementById("result1").innerHTML = [
+          "Gesamt = " + sumb.toFixed(2) + " €",
+        ];
+
+        var dif = suma - sumb;
+
+        document.getElementById("result2").innerHTML = [
+          "Differenz = " + dif.toFixed(2) + " €",
+        ];
+      }
+    </script>
+  </body>
+</html>
