@@ -18,9 +18,7 @@
       ><span id="result1a"></span><br />
       <input type="radio" id="az2a" name="fahrplan" />
         <label for="aza">durchschn. AZ (WAZx4,35)</label
-      ><span id="result2a"></span><br /><br>
-      <label>tats./betriebl. AZ</label>
-      <input type="number" id="tats" /><br><br>
+      ><span id="result2a"></span><br />
       <span id="result4"></span><br /><br />
       <label>Ausfallstd.</label>
       <input type="number" id="aust" /><br /><br />
@@ -71,7 +69,6 @@
       function Calculate() {
         var kaz = parseInt(document.getElementById("kaz").value);
         var aust = (document.getElementById("aust").value);
-        var tats = parseInt(document.getElementById("tats").value);
         var k1 = parseInt(document.getElementById("k1").value);
         var k2 = parseInt(document.getElementById("k2").value);
         var k3 = parseInt(document.getElementById("k3").value);
@@ -106,13 +103,9 @@
         if (checkbox2.checked == false) {
           az2a = 0;
         }
-        
 
         var taz = az1a + az2a;
 
-        if (checkbox1.checked == false && checkbox2.checked == false) {
-          taz = tats;
-        }
         document.getElementById("result").innerHTML = [
           "Sollentgeld = " + kug + " €",
         ];
