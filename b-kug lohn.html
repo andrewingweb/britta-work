@@ -11,32 +11,22 @@
   <body>
     <div id="buttons">
       <h1>KuG Berechnen (Lohn)</h1>
-      <label>wchtl. AZ (WAZ)</label>
-      <input type="number" id="kaz" /><br /><br />
-      <input type="radio" id="az1a" name="fahrplan" />  
-      <label for="aza">durchschn. AZ (WAZx13/3)</label
-      ><span id="result1a"></span><br />
-      <input type="radio" id="az2a" name="fahrplan" />
-        <label for="aza">durchschn. AZ (WAZx4,35)</label
-      ><span id="result2a"></span><br />
-      <span id="result4"></span><br /><br />
-      <label>Ausfallstd.</label>
-      <input type="number" id="aust" /><br /><br />
-
-      <div id="result1"></div>
-      <br />
-      <label>Grundgehalt</label>
-      <input type="number" id="k1" value="0" /><br />
-      <label>Mehrarbeit</label>
-      <input type="number" id="k2" value="0" /><br />
-      <label>PKW</label>
-      <input type="number" id="k3" value="0" /><br />
-      <label>Urlaubsaufschlag</label>
-      <input type="number" id="k4" value="0" /><br />
-      <label>Zulage 1</label>
-      <input type="number" id="k5" value="0" /><br />
-      <label>Zulage 2</label>
-      <input type="number" id="k6" value="0" /><br />
+      <label>Gesamt-AZ des Monats</label>
+      <input type="number" id="gaz" /> Std.<br /><br />
+      <label>tats. geleistete AZ</label>
+      <input type="number" id="tgaz" /> Std.<br />
+      <label>darin enth. Mehrarbeit</label>
+      <input type="number" id="k1" value="0" /> Std.<br />
+      <label>Urlaub</label>
+      <input type="number" id="k2" value="0" /> Std.<br />
+      <label>Feiertag</label>
+      <input type="number" id="k3" value="0" /> Std.<br />
+      <label>Ausfallzeit</label>
+      <input type="number" id="k4" value="0" /> Std.<br />
+      <label>Fehlstd. unbez.</label>
+      <input type="number" id="k5" value="0" /> Std.<br /><br>
+      <label>Stundenlohn</label>
+      <input type="number" id="k6" value="0" />€<br /><br>
       <label>Zulage 3</label>
       <input type="number" id="k7" value="0" /><br />
       <label>Zulage 4</label>
@@ -67,8 +57,8 @@
     </div>
     <script>
       function Calculate() {
-        var kaz = parseInt(document.getElementById("kaz").value);
-        var aust = (document.getElementById("aust").value);
+        var gaz = parseInt(document.getElementById("gaz").value);
+        var tgaz = parseInt(document.getElementById("tgaz").value);
         var k1 = parseInt(document.getElementById("k1").value);
         var k2 = parseInt(document.getElementById("k2").value);
         var k3 = parseInt(document.getElementById("k3").value);
