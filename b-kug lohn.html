@@ -12,7 +12,8 @@
     <div id="buttons">
       <h1>KuG Berechnen (Lohn)</h1>
       <label>Gesamt-AZ des Monats</label>
-      <input type="number" id="gaz" value="0" style="width: 50px" /> Std.<br /><br />
+      <input type="number" id="gaz" value="0" style="width: 50px" />
+      Std.<br /><br />
       <label>tats. geleistete AZ</label>
       <input type="number" id="tgaz" value="0" style="width: 50px" /> Std.<br />
       <label>darin enth. Mehrarbeit</label>
@@ -24,10 +25,14 @@
       <label>Ausfallzeit</label>
       <input type="number" id="k4" value="0" style="width: 50px" /> Std.<br />
       <label>Fehlstd. unbez.</label>
-      <input type="number" id="k5" value="0" style="width: 50px" /> Std.<br /><br>
+      <input type="number" id="k5" value="0" style="width: 50px" />
+      Std.<br /><br />
       <label>Stundenlohn</label>
-      <input type="number" id="k6" value="0" style="width: 50px" />€<br /><br>
-      <div id="result"></div><br>
+      <input type="number" id="k6" value="0" style="width: 50px" />€<br /><br />
+      <div id="result"></div>
+      <div id="result1"></div>
+      <div id="result2"></div>
+      <br />
       <label>Zulage 3</label>
       <input type="number" id="k7" value="0" style="width: 50px" /><br />
       <label>Zulage 4</label>
@@ -48,24 +53,26 @@
         onclick="Calculate();"
         value="Rechnen"
       /><br /><br />
-      <div id="result"></div>
+
       <h3>Kürzungen wegen KuG</h3>
-      <div id="result5"></div><br>
-      <div id="result6"></div><br>
+      <div id="result5"></div>
+      <br />
+      <div id="result6"></div>
+      <br />
       <div id="result7"></div>
 
       <a href="berechnungen.html" class="btn purple">Zurück</a>
     </div>
     <script>
       function Calculate() {
-        var gaz = (document.getElementById("gaz").value);
-        var tgaz = (document.getElementById("tgaz").value);
-        var k1 = (document.getElementById("k1").value);
-        var k2 = parseInt(document.getElementById("k2").value);
-        var k3 = parseInt(document.getElementById("k3").value);
-        var k4 = parseInt(document.getElementById("k4").value);
-        var k5 = parseInt(document.getElementById("k5").value);
-        var k6 = parseInt(document.getElementById("k6").value);
+        var gaz = document.getElementById("gaz").value;
+        var tgaz = document.getElementById("tgaz").value;
+        var k1 = document.getElementById("k1").value;
+        var k2 = (document.getElementById("k2").value);
+        var k3 = (document.getElementById("k3").value);
+        var k4 = (document.getElementById("k4").value);
+        var k5 = (document.getElementById("k5").value);
+        var k6 = (document.getElementById("k6").value);
         var k7 = parseInt(document.getElementById("k7").value);
         var k8 = parseInt(document.getElementById("k8").value);
         var k9 = parseInt(document.getElementById("k9").value);
@@ -74,16 +81,22 @@
         var k12 = parseInt(document.getElementById("k12").value);
         var k13 = parseInt(document.getElementById("k13").value);
 
-        var aeg = (tgaz - k1)*k6;
+        var aeg = (tgaz - k1) * k6;
 
         document.getElementById("result").innerHTML = [
           "Arbeitsentgelt = " + aeg.toFixed(2) + " €",
         ];
-        document.getElementById("result1a").innerHTML = [
-          " " + az1a.toFixed(2) + " Std.",
+
+        var hfs = k5 * k6;
+
+        document.getElementById("result1").innerHTML = [
+          "Hochrechn. Fehlstd. = " + hfs.toFixed(2) + " €",
         ];
-        document.getElementById("result2a").innerHTML = [
-          " " + az2a.toFixed(2) + " Std.",
+
+        var ma = k1*k6;
+
+        document.getElementById("result2").innerHTML = [
+          "Mehrarbeit = " + ma.toFixed(2) + " €",
         ];
 
         document.getElementById("result4").innerHTML = [
