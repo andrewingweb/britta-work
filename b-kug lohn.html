@@ -41,25 +41,25 @@
 
       <div id="result4"></div>
       <label>Zulage 1 fest</label>
-      <input type="number" id="k9" value="0" style="width: 50px" /><br />
+      <input type="number" id="k9" value="0" style="width: 50px" /> ja<input type="radio" id="k9a" name="p9" /> nein<input type="radio" id="k19a" name="p9" /><br />
       <label>Zulage 2 fest</label>
-      <input type="number" id="k10" value="0" style="width: 50px" /><br />
+      <input type="number" id="k10" value="0" style="width: 50px" /> ja<input type="radio" id="k10a" name="p10" /> nein<input type="radio" id="k20a" name="p10" /><br />
       <label>Zulage 3 fest</label>
-      <input type="number" id="k11" value="0" style="width: 50px" /><br />
+      <input type="number" id="k11" value="0" style="width: 50px" /> ja<input type="radio" id="k11a" name="p11" /> nein<input type="radio" id="k21a" name="p11" /><br />
       <label>Zulage 4 fest</label>
-      <input type="number" id="k12" value="0" style="width: 50px" /><br />
+      <input type="number" id="k12" value="0" style="width: 50px" /> ja<input type="radio" id="k12a" name="p12" /> nein<input type="radio" id="k22a" name="p12" /><br />
       <label>Zulage 5 variabel</label>
-      <input type="number" id="k13" value="0" style="width: 50px" /><br />
+      <input type="number" id="k13" value="0" style="width: 50px" /> ja<input type="radio" id="k13a" name="p13" /> nein<input type="radio" id="k23a" name="p13" /><br />
       <label>Zulage 6 variabel</label>
-      <input type="number" id="k14" value="0" style="width: 50px" /><br />
+      <input type="number" id="k14" value="0" style="width: 50px" /> ja<input type="radio" id="k14a" name="p14" /> nein<input type="radio" id="k24a" name="p14" /><br />
       <label>Zulage 7 variabel</label>
-      <input type="number" id="k15" value="0" style="width: 50px" /><br />
+      <input type="number" id="k15" value="0" style="width: 50px" /> ja<input type="radio" id="k15a" name="p15" /> nein<input type="radio" id="k25a" name="p15" /><br />
       <label>Zulage 8 variabel</label>
-      <input type="number" id="k16" value="0" style="width: 50px" /><br />
+      <input type="number" id="k16" value="0" style="width: 50px" /> ja<input type="radio" id="k16a" name="p16" /> nein<input type="radio" id="k26a" name="p16" /><br />
       <label>VL</label>
-      <input type="number" id="k17" value="0" style="width: 50px" /><br />
+      <input type="number" id="k17" value="0" style="width: 50px" /> ja<input type="radio" id="k17a" name="p17" /> nein<input type="radio" id="k27a" name="p17" /><br />
       <label>Kontoführg.</label>
-      <input type="number" id="k18" value="0" style="width: 50px" /><br />
+      <input type="number" id="k18" value="0" style="width: 50px" /> ja<input type="radio" id="k18a" name="p18" /> nein<input type="radio" id="k28a" name="p18" /><br />
       <label>Direktvers.</label>
       <input type="number" id="k19" value="0" style="width: 50px" /> -<br />
       <div id="result5"></div>
@@ -104,19 +104,137 @@
         var k4 = Number(document.getElementById("k4").value);
         var k5 = Number(document.getElementById("k5").value);
         var k6 = Number(document.getElementById("k6").value);
-        var k7 = parseInt(document.getElementById("k7").value);
-        var k8 = parseInt(document.getElementById("k8").value);
-        var k9 = parseInt(document.getElementById("k9").value);
-        var k10 = parseInt(document.getElementById("k10").value);
-        var k11 = parseInt(document.getElementById("k11").value);
-        var k12 = parseInt(document.getElementById("k12").value);
-        var k13 = parseInt(document.getElementById("k13").value);
-        var k14 = parseInt(document.getElementById("k14").value);
-        var k15 = parseInt(document.getElementById("k15").value);
-        var k16 = parseInt(document.getElementById("k16").value);
-        var k17 = parseInt(document.getElementById("k17").value);
-        var k18 = parseInt(document.getElementById("k18").value);
-        var k19 = parseInt(document.getElementById("k19").value);
+        var k7 = Number(document.getElementById("k7").value);
+        var k8 = Number(document.getElementById("k8").value);
+        var k9 = Number(document.getElementById("k9").value);
+        var k10 = Number(document.getElementById("k10").value);
+        var k11 = Number(document.getElementById("k11").value);
+        var k12 = Number(document.getElementById("k12").value);
+        var k13 = Number(document.getElementById("k13").value);
+        var k14 = Number(document.getElementById("k14").value);
+        var k15 = Number(document.getElementById("k15").value);
+        var k16 = Number(document.getElementById("k16").value);
+        var k17 = Number(document.getElementById("k17").value);
+        var k18 = Number(document.getElementById("k18").value);
+        var k19 = Number(document.getElementById("k19").value);
+
+        var gax = gaz - k4;
+        var gax1 = tgaz + k4;
+        var gax2 = gax1 * tgaz;
+
+        var k9b = k9/gax * gaz;
+        var k10b = k10 / gax* gaz;
+        var k11b = k11 / gax* gaz;
+        var k12b = k12 / gax* gaz;
+        var k13b = k13 / tgaz * gax1;
+        var k14b = k14 / tgaz * gax1;
+        var k15b = k15 / tgaz * gax1;
+        var k16b = k16 / tgaz * gax1;
+        var k17b = k17 / gax* gaz;
+        var k18b = k18 / gax* gaz;
+
+        var checkbox9 = document.getElementById("k9a");
+        var checkbox10 = document.getElementById("k10a");
+        var checkbox11 = document.getElementById("k11a");
+        var checkbox12 = document.getElementById("k12a");
+        var checkbox13 = document.getElementById("k13a");
+        var checkbox14 = document.getElementById("k14a");
+        var checkbox15 = document.getElementById("k15a");
+        var checkbox16 = document.getElementById("k16a");
+        var checkbox17 = document.getElementById("k17a");
+        var checkbox18 = document.getElementById("k18a");
+
+        var checkbox19 = document.getElementById("k19a");
+        var checkbox20 = document.getElementById("k20a");
+        var checkbox21 = document.getElementById("k21a");
+        var checkbox22 = document.getElementById("k22a");
+        var checkbox23 = document.getElementById("k23a");
+        var checkbox24 = document.getElementById("k24a");
+        var checkbox25 = document.getElementById("k25a");
+        var checkbox26 = document.getElementById("k26a");
+        var checkbox27 = document.getElementById("k27a");
+        var checkbox28 = document.getElementById("k28a");
+        
+        if (checkbox9.checked == true) {
+          document.getElementById("result11").innerHTML = [
+          "Zuschlag 1 fest = " + k9b.toFixed(2) + " €",
+        ];
+      }
+      if (checkbox9.checked == false) {
+        k9b = 0;
+      }
+        if (checkbox10.checked == true) {
+          document.getElementById("result12").innerHTML = [
+          "Zuschlag 2 fest = " + k10b.toFixed(2) + " €",
+        ];
+      }
+      if (checkbox10.checked == false) {
+        k10b = 0;
+      }
+        if (checkbox11.checked == true) {
+          document.getElementById("result13").innerHTML = [
+          "Zuschlag 3 fest = " + k11b.toFixed(2) + " €",
+        ];
+      }
+      if (checkbox11.checked == false) {
+        k11b = 0;
+      }
+        if (checkbox12.checked == true) {
+          document.getElementById("result14").innerHTML = [
+          "Zuschlag 4 fest = " + k12b.toFixed(2) + " €",
+        ];
+      }
+      if (checkbox12.checked == false) {
+        k12b = 0;
+      }
+        if (checkbox13.checked == true) {
+          document.getElementById("result15").innerHTML = [
+          "Zuschlag 5 variabel = " + k13b.toFixed(2) + " €",
+        ];
+      }
+      if (checkbox13.checked == false) {
+        k13b = 0;
+      }
+        if (checkbox14.checked == true) {
+          document.getElementById("result16").innerHTML = [
+          "Zuschlag 6 variabel = " + k14b.toFixed(2) + " €",
+        ];
+      }
+      if (checkbox14.checked == false) {
+        k14b = 0;
+      }
+        if (checkbox15.checked == true) {
+          document.getElementById("result17").innerHTML = [
+          "Zuschlag 7 variabel = " + k15b.toFixed(2) + " €",
+        ];
+      }
+      if (checkbox15.checked == false) {
+        k15b = 0;
+      }
+        if (checkbox16.checked == true) {
+          document.getElementById("result18").innerHTML = [
+          "Zuschlag 8 variabel = " + k16b.toFixed(2) + " €",
+        ];
+      }
+      if (checkbox16.checked == false) {
+        k16b = 0;
+      }
+        if (checkbox17.checked == true) {
+          document.getElementById("result19").innerHTML = [
+          "VL = " + k17b.toFixed(2) + " €",
+        ];
+      }
+      if (checkbox17.checked == false) {
+        k17b = 0;
+      }
+        if (checkbox18.checked == true) {
+          document.getElementById("result20").innerHTML = [
+          "Kontoführung = " + k18b.toFixed(2) + " €",
+        ];
+      }
+      if (checkbox18.checked == false) {
+        k18b = 0;
+      }
 
         var aeg = (tgaz - k1) * k6;
 
@@ -165,8 +283,7 @@
           k15 +
           k16 +
           k17 +
-          k18 -
-          k19;
+          k18;
 
         document.getElementById("result5").innerHTML = [
           "Istentgeld " + ieg.toFixed(2) + " €",
@@ -202,51 +319,102 @@
           "Feiertag = " + kft.toFixed(2) + " €",
         ];
 
+        if (checkbox19.checked == true) {
         document.getElementById("result11").innerHTML = [
           "Zulage 1 fest = " + k9.toFixed(2) + " €",
         ];
+      }
+      if (checkbox19.checked == false) {
+        k9 = 0;
+      }
 
+      if (checkbox20.checked == true) {
         document.getElementById("result12").innerHTML = [
           "Zulage 2 fest = " + k10.toFixed(2) + " €",
         ];
+      }
+      if (checkbox20.checked == false) {
+        k10 = 0;
+      }
 
+      if (checkbox21.checked == true) {
         document.getElementById("result13").innerHTML = [
           "Zulage 3 fest = " + k11.toFixed(2) + " €",
         ];
+      }
+      if (checkbox21.checked == false) {
+        k11 = 0;
+      }
 
+
+      if (checkbox22.checked == true) {
         document.getElementById("result14").innerHTML = [
           "Zulage 4 fest = " + k12.toFixed(2) + " €",
         ];
+      }
+      if (checkbox22.checked == false) {
+        k12 = 0;
+      }
 
+      if (checkbox23.checked == true) {
         document.getElementById("result15").innerHTML = [
           "Zulage 5 variabel = " + k13.toFixed(2) + " €",
         ];
+      }
+      if (checkbox23.checked == false) {
+        k13 = 0;
+      }
 
+      if (checkbox24.checked == true) {
         document.getElementById("result16").innerHTML = [
           "Zulage 6 variabel = " + k14.toFixed(2) + " €",
         ];
+      }
+      if (checkbox24.checked == false) {
+        k14 = 0;
+      }
 
+      if (checkbox25.checked == true) {
         document.getElementById("result17").innerHTML = [
           "Zulage 7 variabel = " + k15.toFixed(2) + " €",
         ];
+      }
+      if (checkbox25.checked == false) {
+        k15 = 0;
+      }
 
+      if (checkbox26.checked == true) {
         document.getElementById("result18").innerHTML = [
           "Zulage 8 variabel = " + k16.toFixed(2) + " €",
         ];
+      }
+      if (checkbox26.checked == false) {
+        k16 = 0;
+      }
 
+      if (checkbox27.checked == true) {
         document.getElementById("result19").innerHTML = [
           "VL = " + k17.toFixed(2) + " €",
         ];
+      }
+      if (checkbox27.checked == false) {
+        k17 = 0;
+      }
 
+      if (checkbox28.checked == true) {
         document.getElementById("result20").innerHTML = [
           "Kontoführg. = " + k18.toFixed(2) + " €",
         ];
+      }
+      if (checkbox28.checked == false) {
+        k18 = 0;
+      }
 
         document.getElementById("result21").innerHTML = [
           "Direktvers. = " + k19.toFixed(2) + " €",
         ];
 
-        var skeg = kaeg+khf+kul+kuv+kft+k9+k10+k11+k12+k13+k14+k15+k16+k17+k18;
+        var skeg = kaeg+khf+kul+kuv+kft+k9+k9b+k10+k10b+k11+k11b+k12+k12b+k13+k13b+k14+k14b+k15+k15b+k16+k16b+k17+k17b+k18+k18b-k19;
 
         document.getElementById("result22").innerHTML = [
           "Sollentgelt = " + skeg.toFixed(2) + " €",
