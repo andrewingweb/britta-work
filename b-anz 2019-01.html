@@ -776,7 +776,13 @@
         onclick="Calculate();"
         value="Rechnen"
       /><br /><br />
-
+      <br />
+      <div id="result40"></div><br>
+      <div id="result41"></div><br>
+      <div id="result42"></div><br>
+      <div id="result43"></div><br>
+      <div id="result44"></div><br>
+      <br />
       <br />
 
       <a href="b-anz 2019.html" class="btn purple">Zurück</a>
@@ -1237,8 +1243,16 @@
         document.getElementById("result37").innerHTML = [geskugstd.toFixed(2)];
 
         var gesdstd = gesgstd + gesustd + geskstd + gesfstd + geskugstd - gesmstd;
+        var gesbstd = gesustd + geskstd + gesfstd;
+        var geskm = gesbstd - gesgstd;
+        var vw = geskm + geskugstd;
 
         document.getElementById("result38").innerHTML = [gesdstd.toFixed(2)];
+        document.getElementById("result40").innerHTML = ["Sollstunden " + gesgstd.toFixed(2)];
+        document.getElementById("result41").innerHTML = ["betriebl. Std. " + gesbstd.toFixed(2)];
+        document.getElementById("result42").innerHTML = ["KUG-Möglich " + geskm.toFixed(2)];
+        document.getElementById("result43").innerHTML = ["KUG-Std. lt. AZN " + geskugstd.toFixed(2)];
+        document.getElementById("result44").innerHTML = ["KUG zuviel/zuwenig " + vw.toFixed(2)];
 
         
       }
