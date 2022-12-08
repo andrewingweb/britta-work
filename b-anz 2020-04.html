@@ -12,7 +12,7 @@
     <div id="buttons">
       <h1>
         AZN Berechnung <br />
-        April 2019
+        April 2020
       </h1>
       <label>Mo</label>
       <input type="number" id="t1" value="0" style="width: 50px" />
@@ -85,6 +85,12 @@
         }
         .tg .tg-pidv {
           background-color: #ffce93;
+          border-color: inherit;
+          text-align: left;
+          vertical-align: top;
+        }
+        .tg .tg-mf6a {
+          background-color: #98dc98;
           border-color: inherit;
           text-align: left;
           vertical-align: top;
@@ -735,7 +741,7 @@
             </td>
             <td class="tg-90e1" id="result30a"></td>
           </tr>
-          
+
           <tr>
             <td class="tg-0pky" colspan="2">Gesamt:</td>
             <td class="tg-0pky" id="result32"></td>
@@ -757,11 +763,16 @@
         value="Rechnen"
       /><br /><br />
       <br />
-      <div id="result40"></div><br>
-      <div id="result41"></div><br>
-      <div id="result42"></div><br>
-      <div id="result43"></div><br>
-      <div id="result44"></div><br>
+      <div id="result40"></div>
+      <br />
+      <div id="result41"></div>
+      <br />
+      <div id="result42"></div>
+      <br />
+      <div id="result43"></div>
+      <br />
+      <div id="result44"></div>
+      <br />
       <br />
       <br />
 
@@ -807,7 +818,6 @@
         var g28 = Number(document.getElementById("g28").value);
         var g29 = Number(document.getElementById("g29").value);
         var g30 = Number(document.getElementById("g30").value);
-        
 
         var u1 = Number(document.getElementById("u1").value);
         var u2 = Number(document.getElementById("u2").value);
@@ -839,7 +849,6 @@
         var u28 = Number(document.getElementById("u28").value);
         var u29 = Number(document.getElementById("u29").value);
         var u30 = Number(document.getElementById("u30").value);
-        
 
         var k1 = Number(document.getElementById("k1").value);
         var k2 = Number(document.getElementById("k2").value);
@@ -871,7 +880,6 @@
         var k28 = Number(document.getElementById("k28").value);
         var k29 = Number(document.getElementById("k29").value);
         var k30 = Number(document.getElementById("k30").value);
-        
 
         var f1 = Number(document.getElementById("f1").value);
         var f2 = Number(document.getElementById("f2").value);
@@ -903,7 +911,6 @@
         var f28 = Number(document.getElementById("f28").value);
         var f29 = Number(document.getElementById("f29").value);
         var f30 = Number(document.getElementById("f30").value);
-        
 
         var kug1 = Number(document.getElementById("kug1").value);
         var kug2 = Number(document.getElementById("kug2").value);
@@ -935,7 +942,6 @@
         var kug28 = Number(document.getElementById("kug28").value);
         var kug29 = Number(document.getElementById("kug29").value);
         var kug30 = Number(document.getElementById("kug30").value);
-        
 
         var geswstd = t1 + t2 + t3 + t4 + t5 + t6 + t7;
         var gesmstd =
@@ -1099,12 +1105,11 @@
           kug28 +
           kug29 +
           kug30;
-        
 
         document.getElementById("result").innerHTML = [
           "Gesamt = " + geswstd.toFixed(2) + " Std.",
         ];
-        
+
         document.getElementById("result1").innerHTML = [t1.toFixed(2)];
         document.getElementById("result2").innerHTML = [t2.toFixed(2)];
         document.getElementById("result3").innerHTML = [t3.toFixed(2)];
@@ -1139,40 +1144,37 @@
         document.getElementById("result28").innerHTML = [t7.toFixed(2)];
         document.getElementById("result29").innerHTML = [t1.toFixed(2)];
         document.getElementById("result30").innerHTML = [t2.toFixed(2)];
-        
 
-
-        var d1 = g1+u1+k1+f1+kug1-t1;
-        var d2 = g2+u2+k2+f2+kug2-t2;
-        var d3 = g3+u3+k3+f3+kug3-t3;
-        var d4 = g4+u4+k4+f4+kug4-t4;
-        var d5 = g5+u5+k5+f5+kug5-t5;
-        var d6 = g6+u6+k6+f6+kug6-t6;
-        var d7 = g7+u7+k7+f7+kug7-t7;
-        var d8 = g8+u8+k8+f8+kug8-t1;
-        var d9 = g9+u9+k9+f9+kug9-t2;
-        var d10 = g10+u10+k10+f10+kug10-t3;
-        var d11 = g11+u11+k11+f11+kug11-t4;
-        var d12 = g12+u12+k12+f12+kug12-t5;
-        var d13 = g13+u13+k13+f13+kug13-t6;
-        var d14 = g14+u14+k14+f14+kug14-t7;
-        var d15 = g15+u15+k15+f15+kug15-t1;
-        var d16 = g16+u16+k16+f16+kug16-t2;
-        var d17 = g17+u17+k17+f17+kug17-t3;
-        var d18 = g18+u18+k18+f18+kug18-t4;
-        var d19 = g19+u19+k19+f19+kug19-t5;
-        var d20 = g20+u20+k20+f20+kug20-t6;
-        var d21 = g21+u21+k21+f21+kug21-t7;
-        var d22 = g22+u22+k22+f22+kug22-t1;
-        var d23 = g23+u23+k23+f23+kug23-t2;
-        var d24 = g24+u24+k24+f24+kug24-t3;
-        var d25 = g25+u25+k25+f25+kug25-t4;
-        var d26 = g26+u26+k26+f26+kug26-t5;
-        var d27 = g27+u27+k27+f27+kug27-t6;
-        var d28 = g28+u28+k28+f28+kug28-t7;
-        var d29 = g29+u29+k29+f29+kug29-t1;
-        var d30 = g30+u30+k30+f30+kug30-t2;
-        
+        var d1 = g1 + u1 + k1 + f1 + kug1 - t1;
+        var d2 = g2 + u2 + k2 + f2 + kug2 - t2;
+        var d3 = g3 + u3 + k3 + f3 + kug3 - t3;
+        var d4 = g4 + u4 + k4 + f4 + kug4 - t4;
+        var d5 = g5 + u5 + k5 + f5 + kug5 - t5;
+        var d6 = g6 + u6 + k6 + f6 + kug6 - t6;
+        var d7 = g7 + u7 + k7 + f7 + kug7 - t7;
+        var d8 = g8 + u8 + k8 + f8 + kug8 - t1;
+        var d9 = g9 + u9 + k9 + f9 + kug9 - t2;
+        var d10 = g10 + u10 + k10 + f10 + kug10 - t3;
+        var d11 = g11 + u11 + k11 + f11 + kug11 - t4;
+        var d12 = g12 + u12 + k12 + f12 + kug12 - t5;
+        var d13 = g13 + u13 + k13 + f13 + kug13 - t6;
+        var d14 = g14 + u14 + k14 + f14 + kug14 - t7;
+        var d15 = g15 + u15 + k15 + f15 + kug15 - t1;
+        var d16 = g16 + u16 + k16 + f16 + kug16 - t2;
+        var d17 = g17 + u17 + k17 + f17 + kug17 - t3;
+        var d18 = g18 + u18 + k18 + f18 + kug18 - t4;
+        var d19 = g19 + u19 + k19 + f19 + kug19 - t5;
+        var d20 = g20 + u20 + k20 + f20 + kug20 - t6;
+        var d21 = g21 + u21 + k21 + f21 + kug21 - t7;
+        var d22 = g22 + u22 + k22 + f22 + kug22 - t1;
+        var d23 = g23 + u23 + k23 + f23 + kug23 - t2;
+        var d24 = g24 + u24 + k24 + f24 + kug24 - t3;
+        var d25 = g25 + u25 + k25 + f25 + kug25 - t4;
+        var d26 = g26 + u26 + k26 + f26 + kug26 - t5;
+        var d27 = g27 + u27 + k27 + f27 + kug27 - t6;
+        var d28 = g28 + u28 + k28 + f28 + kug28 - t7;
+        var d29 = g29 + u29 + k29 + f29 + kug29 - t1;
+        var d30 = g30 + u30 + k30 + f30 + kug30 - t2;
 
         document.getElementById("result1a").innerHTML = [d1.toFixed(2)];
         document.getElementById("result2a").innerHTML = [d2.toFixed(2)];
@@ -1208,8 +1210,7 @@
         document.getElementById("result28a").innerHTML = [d28.toFixed(2)];
         document.getElementById("result29a").innerHTML = [d29.toFixed(2)];
         document.getElementById("result30a").innerHTML = [d30.toFixed(2)];
-        
-        
+
         document.getElementById("result32").innerHTML = [gesmstd.toFixed(2)];
         document.getElementById("result33").innerHTML = [gesgstd.toFixed(2)];
         document.getElementById("result34").innerHTML = [gesustd.toFixed(2)];
@@ -1217,19 +1218,28 @@
         document.getElementById("result36").innerHTML = [gesfstd.toFixed(2)];
         document.getElementById("result37").innerHTML = [geskugstd.toFixed(2)];
 
-        var gesdstd = gesgstd + gesustd + geskstd + gesfstd + geskugstd - gesmstd;
+        var gesdstd =
+          gesgstd + gesustd + geskstd + gesfstd + geskugstd - gesmstd;
         var gesbstd = gesgstd + gesustd + geskstd + gesfstd;
         var geskm = gesbstd - gesmstd;
         var vw = geskm + geskugstd;
 
         document.getElementById("result38").innerHTML = [gesdstd.toFixed(2)];
-        document.getElementById("result40").innerHTML = ["Sollstunden " + gesmstd.toFixed(2) + " Std."];
-        document.getElementById("result41").innerHTML = ["betriebl. Std. " + gesbstd.toFixed(2) + " Std."];
-        document.getElementById("result42").innerHTML = ["KUG-Möglich " + geskm.toFixed(2) + " Std."];
-        document.getElementById("result43").innerHTML = ["KUG-Std. lt. AZN " + geskugstd.toFixed(2) + " Std."];
-        document.getElementById("result44").innerHTML = ["KUG zuviel/zuwenig " + vw.toFixed(2) + " Std."];
-
-        
+        document.getElementById("result40").innerHTML = [
+          "Sollstunden " + gesmstd.toFixed(2) + " Std.",
+        ];
+        document.getElementById("result41").innerHTML = [
+          "betriebl. Std. " + gesbstd.toFixed(2) + " Std.",
+        ];
+        document.getElementById("result42").innerHTML = [
+          "KUG-Möglich " + geskm.toFixed(2) + " Std.",
+        ];
+        document.getElementById("result43").innerHTML = [
+          "KUG-Std. lt. AZN " + geskugstd.toFixed(2) + " Std.",
+        ];
+        document.getElementById("result44").innerHTML = [
+          "KUG zuviel/zuwenig " + vw.toFixed(2) + " Std.",
+        ];
       }
     </script>
   </body>
