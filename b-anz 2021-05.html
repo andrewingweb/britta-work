@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Berechnungen Arbeitsnachweiss</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="buttons">
+      <h1>
+        AZN Berechnung <br />
+        Mai 2020
+      </h1>
+      <label>Mo</label>
+      <input type="number" id="t1" value="0" style="width: 50px" />
+      Std.<br />
+      <label>Di</label>
+      <input type="number" id="t2" value="0" style="width: 50px" /> Std.<br />
+      <label>Mi</label>
+      <input type="number" id="t3" value="0" style="width: 50px" /> Std.<br />
+      <label>Do</label>
+      <input type="number" id="t4" value="0" style="width: 50px" /> Std.<br />
+      <label>Fr</label>
+      <input type="number" id="t5" value="0" style="width: 50px" /> Std.<br />
+      <label>Sa</label>
+      <input type="number" id="t6" value="0" style="width: 50px" /> Std.<br />
+      <label>So</label>
+      <input type="number" id="t7" value="0" style="width: 50px" />
+      Std.<br /><br />
+      <div id="result"></div>
+      <br />
+
+      <style type="text/css">
+        .tg {
+          border-collapse: collapse;
+          border-spacing: 0;
+        }
+        .tg td {
+          border-color: black;
+          border-style: solid;
+          border-width: 1px;
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          overflow: hidden;
+          padding: 10px 5px;
+          word-break: normal;
+        }
+        .tg th {
+          border-color: black;
+          border-style: solid;
+          border-width: 1px;
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          font-weight: normal;
+          overflow: hidden;
+          padding: 10px 5px;
+          word-break: normal;
+        }
+        .tg .tg-34fe {
+          background-color: #c0c0c0;
+          border-color: inherit;
+          text-align: center;
+          vertical-align: top;
+        }
+        .tg .tg-sebg {
+          background-color: #ffccc9;
+          border-color: inherit;
+          color: #cb0000;
+          text-align: center;
+          vertical-align: top;
+        }
+        .tg .tg-0pky {
+          border-color: inherit;
+          text-align: left;
+          vertical-align: top;
+        }
+        .tg .tg-90e1 {
+          background-color: #ffccc9;
+          border-color: inherit;
+          text-align: left;
+          vertical-align: top;
+        }
+        .tg .tg-pidv {
+          background-color: #ffce93;
+          border-color: inherit;
+          text-align: left;
+          vertical-align: top;
+        }
+        .tg .tg-mf6a {
+          background-color: #98dc98;
+          border-color: inherit;
+          text-align: left;
+          vertical-align: top;
+        }
+      </style>
+      <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-34fe"></th>
+            <th class="tg-34fe"></th>
+            <th class="tg-34fe">Soll</th>
+            <th class="tg-34fe">gearb.</th>
+            <th class="tg-34fe">Urlaub</th>
+            <th class="tg-34fe">krank</th>
+            <th class="tg-34fe">Feiertag</th>
+            <th class="tg-34fe">Kug</th>
+            <th class="tg-sebg">Diff</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-pidv">1.</td>
+            <td class="tg-pidv">Fr</td>
+            <td class="tg-pidv" id="result1"></td>
+            <td class="tg-pidv">
+              <input type="number" id="g1" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-pidv">
+              <input type="number" id="u1" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-pidv">
+              <input type="number" id="k1" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-pidv">
+              <input type="number" id="f1" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-pidv">
+              <input type="number" id="kug1" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-pidv" id="result1a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">2.</td>
+            <td class="tg-0pky">Sa</td>
+            <td class="tg-0pky" id="result2"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g2" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u2" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k2" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f2" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug2" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result2a"></td>
+          </tr>
+          <tr>
+            <td class="tg-mf6a">3.</td>
+            <td class="tg-mf6a">So</td>
+            <td class="tg-mf6a" id="result3"></td>
+            <td class="tg-mf6a">
+              <input type="number" id="g3" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="u3" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="k3" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="f3" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="kug3" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result3a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">4.</td>
+            <td class="tg-0pky">Mo</td>
+            <td class="tg-0pky" id="result4"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g4" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u4" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k4" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f4" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug4" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result4a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">5.</td>
+            <td class="tg-0pky">Di</td>
+            <td class="tg-0pky" id="result5"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g5" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u5" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k5" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f5" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug5" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result5a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">6.</td>
+            <td class="tg-0pky">Mi</td>
+            <td class="tg-0pky" id="result6"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g6" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u6" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k6" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f6" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug6" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result6a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">7.</td>
+            <td class="tg-0pky">Do</td>
+            <td class="tg-0pky" id="result7"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g7" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u7" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k7" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f7" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug7" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result7a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">8.</td>
+            <td class="tg-0pky">Fr</td>
+            <td class="tg-0pky" id="result8"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g8" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u8" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k8" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f8" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug8" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result8a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">9.</td>
+            <td class="tg-0pky">Sa</td>
+            <td class="tg-0pky" id="result9"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g9" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u9" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k9" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f9" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug9" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result9a"></td>
+          </tr>
+          <tr>
+            <td class="tg-mf6a">10.</td>
+            <td class="tg-mf6a">So</td>
+            <td class="tg-mf6a" id="result10"></td>
+            <td class="tg-mf6a">
+              <input type="number" id="g10" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="u10" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="k10" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="f10" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="kug10" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result10a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">11.</td>
+            <td class="tg-0pky">Mo</td>
+            <td class="tg-0pky" id="result11"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g11" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u11" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k11" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f11" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug11" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result11a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">12.</td>
+            <td class="tg-0pky">Di</td>
+            <td class="tg-0pky" id="result12"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g12" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u12" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k12" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f12" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug12" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result12a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">13.</td>
+            <td class="tg-0pky">Mi</td>
+            <td class="tg-0pky" id="result13"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g13" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u13" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k13" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f13" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug13" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result13a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">14.</td>
+            <td class="tg-0pky">Do</td>
+            <td class="tg-0pky" id="result14"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g14" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u14" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k14" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f14" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug14" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result14a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">15.</td>
+            <td class="tg-0pky">Fr</td>
+            <td class="tg-0pky" id="result15"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g15" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u15" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k15" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f15" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug15" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result15a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">16.</td>
+            <td class="tg-0pky">Sa</td>
+            <td class="tg-0pky" id="result16"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g16" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u16" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k16" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f16" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug16" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result16a"></td>
+          </tr>
+          <tr>
+            <td class="tg-mf6a">17.</td>
+            <td class="tg-mf6a">So</td>
+            <td class="tg-mf6a" id="result17"></td>
+            <td class="tg-mf6a">
+              <input type="number" id="g17" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="u17" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="k17" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="f17" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="kug17" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result17a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">18.</td>
+            <td class="tg-0pky">Mo</td>
+            <td class="tg-0pky" id="result18"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g18" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u18" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k18" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f18" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug18" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result18a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">19.</td>
+            <td class="tg-0pky">Di</td>
+            <td class="tg-0pky" id="result19"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g19" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u19" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k19" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f19" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug19" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result19a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">20.</td>
+            <td class="tg-0pky">Mi</td>
+            <td class="tg-0pky" id="result20"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g20" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u20" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k20" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f20" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug20" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result20a"></td>
+          </tr>
+          <tr>
+            <td class="tg-pidv">21.</td>
+            <td class="tg-pidv">Do</td>
+            <td class="tg-pidv" id="result21"></td>
+            <td class="tg-pidv">
+              <input type="number" id="g21" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-pidv">
+              <input type="number" id="u21" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-pidv">
+              <input type="number" id="k21" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-pidv">
+              <input type="number" id="f21" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-pidv">
+              <input type="number" id="kug21" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result21a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">22.</td>
+            <td class="tg-0pky">Fr</td>
+            <td class="tg-0pky" id="result22"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g22" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u22" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k22" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f22" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug22" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result22a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">23.</td>
+            <td class="tg-0pky">Sa</td>
+            <td class="tg-0pky" id="result23"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g23" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u23" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k23" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f23" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug23" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result23a"></td>
+          </tr>
+          <tr>
+            <td class="tg-mf6a">24.</td>
+            <td class="tg-mf6a">So</td>
+            <td class="tg-mf6a" id="result24"></td>
+            <td class="tg-mf6a">
+              <input type="number" id="g24" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="u24" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="k24" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="f24" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-mf6a">
+              <input type="number" id="kug24" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result24a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">25.</td>
+            <td class="tg-0pky">Mo</td>
+            <td class="tg-0pky" id="result25"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g25" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u25" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k25" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f25" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug25" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result25a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">26.</td>
+            <td class="tg-0pky">Di</td>
+            <td class="tg-0pky" id="result26"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g26" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u26" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k26" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f26" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug26" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result26a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">27.</td>
+            <td class="tg-0pky">Mi</td>
+            <td class="tg-0pky" id="result27"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g27" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u27" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k27" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f27" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug27" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result27a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">28.</td>
+            <td class="tg-0pky">Do</td>
+            <td class="tg-0pky" id="result28"><div></div></td>
+            <td class="tg-0pky">
+              <input type="number" id="g28" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u28" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k28" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f28" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug28" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result28a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">29.</td>
+            <td class="tg-0pky">Fr</td>
+            <td class="tg-0pky" id="result29"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g29" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u29" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k29" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f29" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug29" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result29a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">30.</td>
+            <td class="tg-0pky">Sa</td>
+            <td class="tg-0pky" id="result30"></td>
+            <td class="tg-0pky">
+              <input type="number" id="g30" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="u30" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="k30" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="f30" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-0pky">
+              <input type="number" id="kug30" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result30a"></td>
+          </tr>
+          <tr>
+            <td class="tg-pidv">31.</td>
+            <td class="tg-pidv">So</td>
+            <td class="tg-pidv" id="result31"></td>
+            <td class="tg-pidv">
+              <input type="number" id="g31" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-pidv">
+              <input type="number" id="u31" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-pidv">
+              <input type="number" id="k31" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-pidv">
+              <input type="number" id="f31" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-pidv">
+              <input type="number" id="kug31" value="0" style="width: 35px" />
+            </td>
+            <td class="tg-90e1" id="result31a"></td>
+          </tr>
+          <tr>
+            <td class="tg-0pky" colspan="2">Gesamt:</td>
+            <td class="tg-0pky" id="result32"></td>
+            <td class="tg-0pky" id="result33"></td>
+            <td class="tg-0pky" id="result34"></td>
+            <td class="tg-0pky" id="result35"></td>
+            <td class="tg-0pky" id="result36"></td>
+            <td class="tg-0pky" id="result37"></td>
+            <td class="tg-90e1" id="result38"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br />
+      <input
+        class="button"
+        type="button"
+        onclick="Calculate();"
+        value="Rechnen"
+      /><br /><br />
+      <br />
+      <div id="result40"></div><br>
+      <div id="result41"></div><br>
+      <div id="result42"></div><br>
+      <div id="result43"></div><br>
+      <div id="result44"></div><br>
+      <br />
+      <br />
+
+      <a href="b-anz 2020.html" class="btn purple">Zurück</a>
+    </div>
+    <script>
+      function Calculate() {
+        var t1 = Number(document.getElementById("t1").value);
+        var t2 = Number(document.getElementById("t2").value);
+        var t3 = Number(document.getElementById("t3").value);
+        var t4 = Number(document.getElementById("t4").value);
+        var t5 = Number(document.getElementById("t5").value);
+        var t6 = Number(document.getElementById("t6").value);
+        var t7 = Number(document.getElementById("t7").value);
+
+        var g1 = Number(document.getElementById("g1").value);
+        var g2 = Number(document.getElementById("g2").value);
+        var g3 = Number(document.getElementById("g3").value);
+        var g4 = Number(document.getElementById("g4").value);
+        var g5 = Number(document.getElementById("g5").value);
+        var g6 = Number(document.getElementById("g6").value);
+        var g7 = Number(document.getElementById("g7").value);
+        var g8 = Number(document.getElementById("g8").value);
+        var g9 = Number(document.getElementById("g9").value);
+        var g10 = Number(document.getElementById("g10").value);
+        var g11 = Number(document.getElementById("g11").value);
+        var g12 = Number(document.getElementById("g12").value);
+        var g13 = Number(document.getElementById("g13").value);
+        var g14 = Number(document.getElementById("g14").value);
+        var g15 = Number(document.getElementById("g15").value);
+        var g16 = Number(document.getElementById("g16").value);
+        var g17 = Number(document.getElementById("g17").value);
+        var g18 = Number(document.getElementById("g18").value);
+        var g19 = Number(document.getElementById("g19").value);
+        var g20 = Number(document.getElementById("g20").value);
+        var g21 = Number(document.getElementById("g21").value);
+        var g22 = Number(document.getElementById("g22").value);
+        var g23 = Number(document.getElementById("g23").value);
+        var g24 = Number(document.getElementById("g24").value);
+        var g25 = Number(document.getElementById("g25").value);
+        var g26 = Number(document.getElementById("g26").value);
+        var g27 = Number(document.getElementById("g27").value);
+        var g28 = Number(document.getElementById("g28").value);
+        var g29 = Number(document.getElementById("g29").value);
+        var g30 = Number(document.getElementById("g30").value);
+        var g31 = Number(document.getElementById("g31").value);
+
+        var u1 = Number(document.getElementById("u1").value);
+        var u2 = Number(document.getElementById("u2").value);
+        var u3 = Number(document.getElementById("u3").value);
+        var u4 = Number(document.getElementById("u4").value);
+        var u5 = Number(document.getElementById("u5").value);
+        var u6 = Number(document.getElementById("u6").value);
+        var u7 = Number(document.getElementById("u7").value);
+        var u8 = Number(document.getElementById("u8").value);
+        var u9 = Number(document.getElementById("u9").value);
+        var u10 = Number(document.getElementById("u10").value);
+        var u11 = Number(document.getElementById("u11").value);
+        var u12 = Number(document.getElementById("u12").value);
+        var u13 = Number(document.getElementById("u13").value);
+        var u14 = Number(document.getElementById("u14").value);
+        var u15 = Number(document.getElementById("u15").value);
+        var u16 = Number(document.getElementById("u16").value);
+        var u17 = Number(document.getElementById("u17").value);
+        var u18 = Number(document.getElementById("u18").value);
+        var u19 = Number(document.getElementById("u19").value);
+        var u20 = Number(document.getElementById("u20").value);
+        var u21 = Number(document.getElementById("u21").value);
+        var u22 = Number(document.getElementById("u22").value);
+        var u23 = Number(document.getElementById("u23").value);
+        var u24 = Number(document.getElementById("u24").value);
+        var u25 = Number(document.getElementById("u25").value);
+        var u26 = Number(document.getElementById("u26").value);
+        var u27 = Number(document.getElementById("u27").value);
+        var u28 = Number(document.getElementById("u28").value);
+        var u29 = Number(document.getElementById("u29").value);
+        var u30 = Number(document.getElementById("u30").value);
+        var u31 = Number(document.getElementById("u31").value);
+
+        var k1 = Number(document.getElementById("k1").value);
+        var k2 = Number(document.getElementById("k2").value);
+        var k3 = Number(document.getElementById("k3").value);
+        var k4 = Number(document.getElementById("k4").value);
+        var k5 = Number(document.getElementById("k5").value);
+        var k6 = Number(document.getElementById("k6").value);
+        var k7 = Number(document.getElementById("k7").value);
+        var k8 = Number(document.getElementById("k8").value);
+        var k9 = Number(document.getElementById("k9").value);
+        var k10 = Number(document.getElementById("k10").value);
+        var k11 = Number(document.getElementById("k11").value);
+        var k12 = Number(document.getElementById("k12").value);
+        var k13 = Number(document.getElementById("k13").value);
+        var k14 = Number(document.getElementById("k14").value);
+        var k15 = Number(document.getElementById("k15").value);
+        var k16 = Number(document.getElementById("k16").value);
+        var k17 = Number(document.getElementById("k17").value);
+        var k18 = Number(document.getElementById("k18").value);
+        var k19 = Number(document.getElementById("k19").value);
+        var k20 = Number(document.getElementById("k20").value);
+        var k21 = Number(document.getElementById("k21").value);
+        var k22 = Number(document.getElementById("k22").value);
+        var k23 = Number(document.getElementById("k23").value);
+        var k24 = Number(document.getElementById("k24").value);
+        var k25 = Number(document.getElementById("k25").value);
+        var k26 = Number(document.getElementById("k26").value);
+        var k27 = Number(document.getElementById("k27").value);
+        var k28 = Number(document.getElementById("k28").value);
+        var k29 = Number(document.getElementById("k29").value);
+        var k30 = Number(document.getElementById("k30").value);
+        var k31 = Number(document.getElementById("k31").value);
+
+        var f1 = Number(document.getElementById("f1").value);
+        var f2 = Number(document.getElementById("f2").value);
+        var f3 = Number(document.getElementById("f3").value);
+        var f4 = Number(document.getElementById("f4").value);
+        var f5 = Number(document.getElementById("f5").value);
+        var f6 = Number(document.getElementById("f6").value);
+        var f7 = Number(document.getElementById("f7").value);
+        var f8 = Number(document.getElementById("f8").value);
+        var f9 = Number(document.getElementById("f9").value);
+        var f10 = Number(document.getElementById("f10").value);
+        var f11 = Number(document.getElementById("f11").value);
+        var f12 = Number(document.getElementById("f12").value);
+        var f13 = Number(document.getElementById("f13").value);
+        var f14 = Number(document.getElementById("f14").value);
+        var f15 = Number(document.getElementById("f15").value);
+        var f16 = Number(document.getElementById("f16").value);
+        var f17 = Number(document.getElementById("f17").value);
+        var f18 = Number(document.getElementById("f18").value);
+        var f19 = Number(document.getElementById("f19").value);
+        var f20 = Number(document.getElementById("f20").value);
+        var f21 = Number(document.getElementById("f21").value);
+        var f22 = Number(document.getElementById("f22").value);
+        var f23 = Number(document.getElementById("f23").value);
+        var f24 = Number(document.getElementById("f24").value);
+        var f25 = Number(document.getElementById("f25").value);
+        var f26 = Number(document.getElementById("f26").value);
+        var f27 = Number(document.getElementById("f27").value);
+        var f28 = Number(document.getElementById("f28").value);
+        var f29 = Number(document.getElementById("f29").value);
+        var f30 = Number(document.getElementById("f30").value);
+        var f31 = Number(document.getElementById("f31").value);
+
+        var kug1 = Number(document.getElementById("kug1").value);
+        var kug2 = Number(document.getElementById("kug2").value);
+        var kug3 = Number(document.getElementById("kug3").value);
+        var kug4 = Number(document.getElementById("kug4").value);
+        var kug5 = Number(document.getElementById("kug5").value);
+        var kug6 = Number(document.getElementById("kug6").value);
+        var kug7 = Number(document.getElementById("kug7").value);
+        var kug8 = Number(document.getElementById("kug8").value);
+        var kug9 = Number(document.getElementById("kug9").value);
+        var kug10 = Number(document.getElementById("kug10").value);
+        var kug11 = Number(document.getElementById("kug11").value);
+        var kug12 = Number(document.getElementById("kug12").value);
+        var kug13 = Number(document.getElementById("kug13").value);
+        var kug14 = Number(document.getElementById("kug14").value);
+        var kug15 = Number(document.getElementById("kug15").value);
+        var kug16 = Number(document.getElementById("kug16").value);
+        var kug17 = Number(document.getElementById("kug17").value);
+        var kug18 = Number(document.getElementById("kug18").value);
+        var kug19 = Number(document.getElementById("kug19").value);
+        var kug20 = Number(document.getElementById("kug20").value);
+        var kug21 = Number(document.getElementById("kug21").value);
+        var kug22 = Number(document.getElementById("kug22").value);
+        var kug23 = Number(document.getElementById("kug23").value);
+        var kug24 = Number(document.getElementById("kug24").value);
+        var kug25 = Number(document.getElementById("kug25").value);
+        var kug26 = Number(document.getElementById("kug26").value);
+        var kug27 = Number(document.getElementById("kug27").value);
+        var kug28 = Number(document.getElementById("kug28").value);
+        var kug29 = Number(document.getElementById("kug29").value);
+        var kug30 = Number(document.getElementById("kug30").value);
+        var kug31 = Number(document.getElementById("kug31").value);
+
+        var geswstd = t1 + t2 + t3 + t4 + t5 + t6 + t7;
+        var gesmstd =
+          t1 * 4 + t2 * 4 + t3 * 4 + t4 * 4 + t5 * 5 + t6 * 5 + t7 * 5;
+        var gesgstd =
+          g1 +
+          g2 +
+          g3 +
+          g4 +
+          g5 +
+          g6 +
+          g7 +
+          g8 +
+          g9 +
+          g10 +
+          g11 +
+          g12 +
+          g13 +
+          g14 +
+          g15 +
+          g16 +
+          g17 +
+          g18 +
+          g19 +
+          g20 +
+          g21 +
+          g22 +
+          g23 +
+          g24 +
+          g25 +
+          g26 +
+          g27 +
+          g28 +
+          g29 +
+          g30 +
+          g31;
+
+        var gesustd =
+          u1 +
+          u2 +
+          u3 +
+          u4 +
+          u5 +
+          u6 +
+          u7 +
+          u8 +
+          u9 +
+          u10 +
+          u11 +
+          u12 +
+          u13 +
+          u14 +
+          u15 +
+          u16 +
+          u17 +
+          u18 +
+          u19 +
+          u20 +
+          u21 +
+          u22 +
+          u23 +
+          u24 +
+          u25 +
+          u26 +
+          u27 +
+          u28 +
+          u29 +
+          u30 +
+          u31;
+
+        var geskstd =
+          k1 +
+          k2 +
+          k3 +
+          k4 +
+          k5 +
+          k6 +
+          k7 +
+          k8 +
+          k9 +
+          k10 +
+          k11 +
+          k12 +
+          k13 +
+          k14 +
+          k15 +
+          k16 +
+          k17 +
+          k18 +
+          k19 +
+          k20 +
+          k21 +
+          k22 +
+          k23 +
+          k24 +
+          k25 +
+          k26 +
+          k27 +
+          k28 +
+          k29 +
+          k30 +
+          k31;
+
+        var gesfstd =
+          f1 +
+          f2 +
+          f3 +
+          f4 +
+          f5 +
+          f6 +
+          f7 +
+          f8 +
+          f9 +
+          f10 +
+          f11 +
+          f12 +
+          f13 +
+          f14 +
+          f15 +
+          f16 +
+          f17 +
+          f18 +
+          f19 +
+          f20 +
+          f21 +
+          f22 +
+          f23 +
+          f24 +
+          f25 +
+          f26 +
+          f27 +
+          f28 +
+          f29 +
+          f30 +
+          f31;
+
+        var geskugstd =
+          kug1 +
+          kug2 +
+          kug3 +
+          kug4 +
+          kug5 +
+          kug6 +
+          kug7 +
+          kug8 +
+          kug9 +
+          kug10 +
+          kug11 +
+          kug12 +
+          kug13 +
+          kug14 +
+          kug15 +
+          kug16 +
+          kug17 +
+          kug18 +
+          kug19 +
+          kug20 +
+          kug21 +
+          kug22 +
+          kug23 +
+          kug24 +
+          kug25 +
+          kug26 +
+          kug27 +
+          kug28 +
+          kug29 +
+          kug30 +
+          kug31;
+        
+
+        document.getElementById("result").innerHTML = [
+          "Gesamt = " + geswstd.toFixed(2) + " Std.",
+        ];
+        
+        document.getElementById("result1").innerHTML = [t5.toFixed(2)];
+        document.getElementById("result2").innerHTML = [t6.toFixed(2)];
+        document.getElementById("result3").innerHTML = [t7.toFixed(2)];
+        document.getElementById("result4").innerHTML = [t1.toFixed(2)];
+        document.getElementById("result5").innerHTML = [t2.toFixed(2)];
+        document.getElementById("result6").innerHTML = [t3.toFixed(2)];
+
+        document.getElementById("result7").innerHTML = [t4.toFixed(2)];
+        document.getElementById("result8").innerHTML = [t5.toFixed(2)];
+        document.getElementById("result9").innerHTML = [t6.toFixed(2)];
+        document.getElementById("result10").innerHTML = [t7.toFixed(2)];
+        document.getElementById("result11").innerHTML = [t1.toFixed(2)];
+        document.getElementById("result12").innerHTML = [t2.toFixed(2)];
+        document.getElementById("result13").innerHTML = [t3.toFixed(2)];
+
+        document.getElementById("result14").innerHTML = [t4.toFixed(2)];
+        document.getElementById("result15").innerHTML = [t5.toFixed(2)];
+        document.getElementById("result16").innerHTML = [t6.toFixed(2)];
+        document.getElementById("result17").innerHTML = [t7.toFixed(2)];
+        document.getElementById("result18").innerHTML = [t1.toFixed(2)];
+        document.getElementById("result19").innerHTML = [t2.toFixed(2)];
+        document.getElementById("result20").innerHTML = [t3.toFixed(2)];
+
+        document.getElementById("result21").innerHTML = [t4.toFixed(2)];
+        document.getElementById("result22").innerHTML = [t5.toFixed(2)];
+        document.getElementById("result23").innerHTML = [t6.toFixed(2)];
+        document.getElementById("result24").innerHTML = [t7.toFixed(2)];
+        document.getElementById("result25").innerHTML = [t1.toFixed(2)];
+        document.getElementById("result26").innerHTML = [t2.toFixed(2)];
+        document.getElementById("result27").innerHTML = [t3.toFixed(2)];
+
+        document.getElementById("result28").innerHTML = [t4.toFixed(2)];
+        document.getElementById("result29").innerHTML = [t5.toFixed(2)];
+        document.getElementById("result30").innerHTML = [t6.toFixed(2)];
+        document.getElementById("result31").innerHTML = [t7.toFixed(2)];
+
+
+        var d1 = g1+u1+k1+f1+kug1-t5;
+        var d2 = g2+u2+k2+f2+kug2-t6;
+        var d3 = g3+u3+k3+f3+kug3-t7;
+        var d4 = g4+u4+k4+f4+kug4-t1;
+        var d5 = g5+u5+k5+f5+kug5-t2;
+        var d6 = g6+u6+k6+f6+kug6-t3;
+        var d7 = g7+u7+k7+f7+kug7-t4;
+        var d8 = g8+u8+k8+f8+kug8-t5;
+        var d9 = g9+u9+k9+f9+kug9-t6;
+        var d10 = g10+u10+k10+f10+kug10-t7;
+        var d11 = g11+u11+k11+f11+kug11-t1;
+        var d12 = g12+u12+k12+f12+kug12-t2;
+        var d13 = g13+u13+k13+f13+kug13-t3;
+        var d14 = g14+u14+k14+f14+kug14-t4;
+        var d15 = g15+u15+k15+f15+kug15-t5;
+        var d16 = g16+u16+k16+f16+kug16-t6;
+        var d17 = g17+u17+k17+f17+kug17-t7;
+        var d18 = g18+u18+k18+f18+kug18-t1;
+        var d19 = g19+u19+k19+f19+kug19-t2;
+        var d20 = g20+u20+k20+f20+kug20-t3;
+        var d21 = g21+u21+k21+f21+kug21-t4;
+        var d22 = g22+u22+k22+f22+kug22-t5;
+        var d23 = g23+u23+k23+f23+kug23-t6;
+        var d24 = g24+u24+k24+f24+kug24-t7;
+        var d25 = g25+u25+k25+f25+kug25-t1;
+        var d26 = g26+u26+k26+f26+kug26-t2;
+        var d27 = g27+u27+k27+f27+kug27-t3;
+        var d28 = g28+u28+k28+f28+kug28-t4;
+        var d29 = g29+u29+k29+f29+kug29-t5;
+        var d30 = g30+u30+k30+f30+kug30-t6;
+        var d31 = g31+u31+k31+f31+kug31-t7;
+
+        document.getElementById("result1a").innerHTML = [d1.toFixed(2)];
+        document.getElementById("result2a").innerHTML = [d2.toFixed(2)];
+        document.getElementById("result3a").innerHTML = [d3.toFixed(2)];
+        document.getElementById("result4a").innerHTML = [d4.toFixed(2)];
+        document.getElementById("result5a").innerHTML = [d5.toFixed(2)];
+        document.getElementById("result6a").innerHTML = [d6.toFixed(2)];
+
+        document.getElementById("result7a").innerHTML = [d7.toFixed(2)];
+        document.getElementById("result8a").innerHTML = [d8.toFixed(2)];
+        document.getElementById("result9a").innerHTML = [d9.toFixed(2)];
+        document.getElementById("result10a").innerHTML = [d10.toFixed(2)];
+        document.getElementById("result11a").innerHTML = [d11.toFixed(2)];
+        document.getElementById("result12a").innerHTML = [d12.toFixed(2)];
+        document.getElementById("result13a").innerHTML = [d13.toFixed(2)];
+
+        document.getElementById("result14a").innerHTML = [d14.toFixed(2)];
+        document.getElementById("result15a").innerHTML = [d15.toFixed(2)];
+        document.getElementById("result16a").innerHTML = [d16.toFixed(2)];
+        document.getElementById("result17a").innerHTML = [d17.toFixed(2)];
+        document.getElementById("result18a").innerHTML = [d18.toFixed(2)];
+        document.getElementById("result19a").innerHTML = [d19.toFixed(2)];
+        document.getElementById("result20a").innerHTML = [d20.toFixed(2)];
+
+        document.getElementById("result21a").innerHTML = [d21.toFixed(2)];
+        document.getElementById("result22a").innerHTML = [d22.toFixed(2)];
+        document.getElementById("result23a").innerHTML = [d23.toFixed(2)];
+        document.getElementById("result24a").innerHTML = [d24.toFixed(2)];
+        document.getElementById("result25a").innerHTML = [d25.toFixed(2)];
+        document.getElementById("result26a").innerHTML = [d26.toFixed(2)];
+        document.getElementById("result27a").innerHTML = [d27.toFixed(2)];
+
+        document.getElementById("result28a").innerHTML = [d28.toFixed(2)];
+        document.getElementById("result29a").innerHTML = [d29.toFixed(2)];
+        document.getElementById("result30a").innerHTML = [d30.toFixed(2)];
+        document.getElementById("result31a").innerHTML = [d31.toFixed(2)];
+        
+        document.getElementById("result32").innerHTML = [gesmstd.toFixed(2)];
+        document.getElementById("result33").innerHTML = [gesgstd.toFixed(2)];
+        document.getElementById("result34").innerHTML = [gesustd.toFixed(2)];
+        document.getElementById("result35").innerHTML = [geskstd.toFixed(2)];
+        document.getElementById("result36").innerHTML = [gesfstd.toFixed(2)];
+        document.getElementById("result37").innerHTML = [geskugstd.toFixed(2)];
+
+        var gesdstd = gesgstd + gesustd + geskstd + gesfstd + geskugstd - gesmstd;
+        var gesbstd = gesgstd + gesustd + geskstd + gesfstd;
+        var geskm = gesbstd - gesmstd;
+        var vw = geskm + geskugstd;
+
+        document.getElementById("result38").innerHTML = [gesdstd.toFixed(2)];
+        document.getElementById("result40").innerHTML = ["Sollstunden " + gesmstd.toFixed(2) + " Std."];
+        document.getElementById("result41").innerHTML = ["betriebl. Std. " + gesbstd.toFixed(2) + " Std."];
+        document.getElementById("result42").innerHTML = ["KUG-Möglich " + geskm.toFixed(2) + " Std."];
+        document.getElementById("result43").innerHTML = ["KUG-Std. lt. AZN " + geskugstd.toFixed(2) + " Std."];
+        document.getElementById("result44").innerHTML = ["KUG zuviel/zuwenig " + vw.toFixed(2) + " Std."];
+
+        
+      }
+    </script>
+  </body>
+</html>
