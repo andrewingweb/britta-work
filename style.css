@@ -12,6 +12,10 @@ h1 {
   color: #cb7d50;
   text-align: center;
 }
+h2 {
+  color: #fa0404;
+  text-align: center;
+}
 
 /* header/copyright link */
 .link {
